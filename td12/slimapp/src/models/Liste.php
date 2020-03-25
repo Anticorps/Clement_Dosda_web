@@ -15,5 +15,9 @@ class Liste extends Model {
     public function items(){
     return $this->hasMany('\slimapp\models\Item','liste_id')->get(); 
 	}
+
+	public static function getId($id){
+        return Liste::where('no', '=', $id)->first();
+    }
 }
 

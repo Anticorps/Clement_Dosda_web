@@ -17,5 +17,9 @@ class Item extends Model {
 
 	}
 
+	public static function getId($id){
+        return Item::where('id', '=', $id)->first();
+    }
+
 }
 
