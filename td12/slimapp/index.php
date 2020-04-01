@@ -12,9 +12,8 @@ $db->setAsGlobal();
 $db->bootEloquent();
 
 $app = new \Slim\Slim();
-$l = Liste::get();
 $app->get('/', function(){
-    foreach ($l as $liste){
+    foreach (Liste::get() as $liste){
         echo "\n<p>" . $liste->titre . '</p>';
     }
 });
