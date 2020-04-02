@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Script d'affichage
- * @author lsteinmetz
- */
-
 require_once 'vendor/autoload.php';
 
 use Illuminate\Database\Capsule\Manager as DB;
