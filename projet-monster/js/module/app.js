@@ -18,6 +18,7 @@ let _start = () => {
 
 	actions.init(NAME,100,0,true);
 	ui.displayStatus(actions.get());
+    
 
 	SHOWME.addEventListener("click", (event) => {
         actions.showme();
@@ -48,11 +49,58 @@ let _start = () => {
     	ui.displayStatus(actions.get());
     });
 
+    KILL.addEventListener("click",(event) =>{
+        actions.kill();
+        ui.displayStatus(actions.get());
+    });
 
+    KILL.addEventListener("click",(event) =>{
+        actions.kill();
+        ui.displayStatus(actions.get());
+    });
 
+    NEW.addEventListener("click",(event) =>{
+        let nom = prompt('Nom du nouveau monstre',"");
+        if(nom != null){
+            actions.init(nom,100,0,true);
+            ui.displayStatus(actions.get());
+        }else{
+            alert("veillez entré un nom valide");
+        }
+    });
 
+    setInterval(()=>{
 
+        let actionEffectuer = Math.floor(Math.random() * 5);
+          actions.get().life = actions.get().life-1;
+          switch(actionEffectuer){
+           case 0 :
+                actions.sleep();
+                ui.displayStatus(actions.get());
+               break;
+           case 1 :
+                actions.eat();
+                ui.displayStatus(actions.get());
+               break;
+           case 2 :
+                actions.work();
+                ui.displayStatus(actions.get());
+               break;
+           case 3 :
+                actions.fight();
+                ui.displayStatus(actions.get());
+               break;
+           case 4 :
+                actions.run();
+                ui.displayStatus(actions.get());
+               break;
+            }    
+        },12000);
+    
 }
+
+
+
 
 export default{
 	start : _start

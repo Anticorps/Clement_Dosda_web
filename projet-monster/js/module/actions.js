@@ -26,7 +26,7 @@ let _get = () => monster;
 let _run = () => {
 	if(monster.awake && monster.life > 2){
 		monster.life --;
-		ui.log("votre monstre ce met a courir");
+		ui.log("votre monstre se met a courir");
 	}else{
 		ui.log("votre monstre n'est pas en capacité de courir");
 	}
@@ -73,8 +73,16 @@ let _sleep = () => {
 			monster.awake = true;
 			monster.life = monster.life + 2;
 			ui.log("votre monstre se reveile");
-			ui.displayStatus(actions.get());
+			ui.displayStatus(monster);
 		},10000);
+	}
+}
+
+let _kill = () => {
+	if(monster.life>0){
+		monster.life = 0;
+		monster.money = 0;
+		alert("votre monstre est mort");
 	}
 }
 
@@ -86,5 +94,6 @@ export default{
 	fight : _fight,
 	work : _work,
 	eat : _eat,
-	sleep : _sleep
+	sleep : _sleep,
+	kill : _kill
 }
